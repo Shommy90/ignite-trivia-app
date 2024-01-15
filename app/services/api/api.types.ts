@@ -1,3 +1,6 @@
+import { GeneralApiProblem } from "./apiProblem"
+import { QuestionSnapshotOut } from "../../models"
+
 /**
  * These types indicate the shape of the data you expect to receive from your
  * API endpoint, assuming it's a JSON object like we have.
@@ -33,6 +36,10 @@ export interface ApiFeedResponse {
   }
   items: EpisodeItem[]
 }
+
+export type GetQuestionsResult = 
+  | { kind: "ok"; questions: QuestionSnapshotOut[] }
+  | GeneralApiProblem
 
 /**
  * The options used to configure apisauce.
